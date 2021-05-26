@@ -1,6 +1,6 @@
 package com.gui.demo.thingInJava.collectionAndMap;
 
-import com.gui.demo.utils.BasicGenerator;
+import com.gui.demo.thingInJava.lunzi.BasicGenerator;
 
 /**
  * @Classname BasicGeneratorDemo

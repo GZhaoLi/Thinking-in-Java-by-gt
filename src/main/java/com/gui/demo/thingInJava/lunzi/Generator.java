@@ -1,4 +1,4 @@
-package com.gui.demo.utils;
+package com.gui.demo.thingInJava.lunzi;
 
 /**
  * @Classname Generator

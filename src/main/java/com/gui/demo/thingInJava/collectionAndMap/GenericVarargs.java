@@ -1,8 +1,7 @@
 package com.gui.demo.thingInJava.collectionAndMap;
 
-import com.gui.demo.utils.New;
+import com.gui.demo.thingInJava.lunzi.New;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

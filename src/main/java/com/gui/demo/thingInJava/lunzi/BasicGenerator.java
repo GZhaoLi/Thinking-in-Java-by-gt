@@ -1,4 +1,4 @@
-package com.gui.demo.utils;
+package com.gui.demo.thingInJava.lunzi;
 
 import com.gui.demo.thingInJava.collectionAndMap.Generator;
 

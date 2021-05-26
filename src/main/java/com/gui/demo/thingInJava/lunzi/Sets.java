@@ -1,11 +1,11 @@
-package com.gui.demo.thingInJava.collectionAndMap;
+package com.gui.demo.thingInJava.lunzi;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @Classname Sets
- * @Description TODO
+ * @Description 产生集合的
  * @Date 2021/5/11 14:53
  * @Created by gt136
  */

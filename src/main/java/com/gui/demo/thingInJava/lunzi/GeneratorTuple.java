@@ -1,4 +1,8 @@
-package com.gui.demo.thingInJava.collectionAndMap;
+package com.gui.demo.thingInJava.lunzi;
+
+import com.gui.demo.thingInJava.collectionAndMap.FourTuple;
+import com.gui.demo.thingInJava.collectionAndMap.ThreeTuple;
+import com.gui.demo.thingInJava.collectionAndMap.TwoTuple;
 
 /**
  * @Classname GeneratorTuple

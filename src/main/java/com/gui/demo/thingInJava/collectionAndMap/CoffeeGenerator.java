@@ -60,7 +60,7 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
 
     /**
      * 当对这个类调用foreach遍历时，就会调用默认的Iterator方法，而在这里重写了Iterator，就会执行这个方法。但是执行这个方法创建
-     * 对内部类的引用后，执行内部类的每一个方法很疑惑
+     * 对内部类的引用后，遍历就会执行内部类的hasNext()和 next().
      * @author gt
      * @date 2021/5/10 14:26
      * @return Coffee
