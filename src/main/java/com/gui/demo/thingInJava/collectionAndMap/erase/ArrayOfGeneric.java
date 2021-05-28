@@ -2,7 +2,7 @@ package com.gui.demo.thingInJava.collectionAndMap.erase;
 
 /**
  * @Classname ArrayOfGeneric
- * @Description TODO
+ * @Description 通用数组
  * @Date 2021/5/14 17:31
  * @Created by gt136
  */

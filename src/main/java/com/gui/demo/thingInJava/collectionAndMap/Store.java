@@ -1,5 +1,7 @@
 package com.gui.demo.thingInJava.collectionAndMap;
 
+import com.gui.demo.thingInJava.lunzi.Generators;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,9 +16,9 @@ class Product{
     private final int id;
     private String description;
     private double price;
-    public Product(int IDNumber, String descr, double price){
+    public Product(int IDNumber, String desc, double price){
         id = IDNumber;
-        description = descr;
+        description = desc;
         this.price = price;
         System.out.println("1:"+toString());
     }

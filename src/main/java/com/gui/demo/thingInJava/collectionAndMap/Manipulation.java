@@ -2,7 +2,7 @@ package com.gui.demo.thingInJava.collectionAndMap;
 
 /**
  * @Classname Manipulatol
- * @Description TODO
+ * @Description 泛型擦除
  * @Date 2021/5/13 14:16
  * @Created by gt136
  */

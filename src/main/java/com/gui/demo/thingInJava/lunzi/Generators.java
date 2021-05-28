@@ -1,4 +1,9 @@
-package com.gui.demo.thingInJava.collectionAndMap;
+package com.gui.demo.thingInJava.lunzi;
+
+import com.gui.demo.thingInJava.collectionAndMap.Coffee;
+import com.gui.demo.thingInJava.collectionAndMap.CoffeeGenerator;
+import com.gui.demo.thingInJava.collectionAndMap.Fibonacci;
+import com.gui.demo.thingInJava.collectionAndMap.Generator;
 
 import java.util.ArrayList;
 import java.util.Collection;

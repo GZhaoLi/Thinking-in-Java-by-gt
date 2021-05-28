@@ -1,5 +1,7 @@
 package com.gui.demo.thingInJava.collectionAndMap;
 
+import com.gui.demo.thingInJava.lunzi.Generators;
+
 import java.util.*;
 
 /**
