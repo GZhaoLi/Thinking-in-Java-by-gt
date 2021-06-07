@@ -30,6 +30,9 @@ public class FilledList1<T> extends ArrayList<T> {
         //Supplier 版本
         List<Integer> integerList = new FilledList1<>(() -> 47, 4);
         System.out.println(integerList);
+
+        Integer[] list1 = (Integer[]) Array.newInstance(Integer.class, 4);
+        System.out.println(list1.length);
     }
 
     T[] create(Class<T> c, int size) {

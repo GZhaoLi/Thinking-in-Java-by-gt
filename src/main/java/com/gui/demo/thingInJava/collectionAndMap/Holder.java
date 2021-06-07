@@ -1,7 +1,5 @@
 package com.gui.demo.thingInJava.collectionAndMap;
 
-import java.nio.charset.StandardCharsets;
-
 /**
  * @Classname Holder
  * @Description TODO
@@ -11,6 +9,9 @@ import java.nio.charset.StandardCharsets;
 public class Holder<T> {
     private T a;
 
+    public Holder() {
+
+    }
     public Holder(T a) {
         this.a = a;
     }
