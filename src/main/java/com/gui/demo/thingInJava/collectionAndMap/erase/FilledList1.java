@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * @Created by gt136
  */
 public class FilledList1<T> extends ArrayList<T> {
-    FilledList1(Supplier<T> gen, int size) {
+    public FilledList1(Supplier<T> gen, int size) {
         Suppliers.fill(this, gen, size);
     }
 

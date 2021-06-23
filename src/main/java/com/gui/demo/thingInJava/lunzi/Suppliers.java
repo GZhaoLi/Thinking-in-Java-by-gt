@@ -13,7 +13,7 @@ import java.util.stream.Stream;
  */
 public class Suppliers {
     //创建一个集合并填充它
-    public <T, C extends Collection<T>> C create(Supplier<C> factory, Supplier<T> gen, int n) {
+    public static <T, C extends Collection<T>> C create(Supplier<C> factory, Supplier<T> gen, int n) {
         return Stream.generate(gen)
                 .limit(n)
                 .collect(factory, C::add, C::addAll);
