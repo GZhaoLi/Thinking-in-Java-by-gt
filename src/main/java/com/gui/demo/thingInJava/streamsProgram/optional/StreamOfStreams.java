@@ -1,12 +1,13 @@
 package com.gui.demo.thingInJava.streamsProgram.optional;
 
 import java.util.Random;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
  * @Classname StreamOfStreams
- * @Description TODO
+ * @Description 流中流
  * @Date 2021/6/17 16:41
  * @Created by gt136
  */
@@ -14,6 +15,12 @@ public class StreamOfStreams {
     static Random rand = new Random(47);
     public static void main(String[] args) {
         Stream.of(1,2,3)
+                /*.map(new Function<Integer, Stream<String>>() {
+                    @Override
+                    public Stream<String> apply(Integer integer) {
+                        return Stream.of("null");
+                    }
+                })*/
                 .map(i->Stream.of("Gonzo","Kermit","Breaker"))
                 .map(e->e.getClass().getName())
                 .forEach(System.out::println);

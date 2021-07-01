@@ -23,6 +23,7 @@ public class FileToWordsRegexp {
                 .collect(Collectors.joining(" "));
     }
     public Stream<String> stream() {
+        //splitAsStream() 只能接收charSequence 对象，但是String 符合这种要求
         return Pattern
                 .compile("[ .,?]+")
                 .splitAsStream(all);

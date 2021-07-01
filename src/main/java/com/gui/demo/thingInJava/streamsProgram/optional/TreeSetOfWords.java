@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 /**
  * @Classname TreeSetOfWords
- * @Description TODO
+ * @Description 将流封装到TreeSet集合中
  * @Date 2021/6/21 17:33
  * @Created by gt136
  */
@@ -29,7 +29,7 @@ public class TreeSetOfWords {
 //                    }
 //                })
                 .filter(s->!s.matches("\\d+"))
-                .map(String::trim)
+                .map(String::trim)//去掉字符串中的“ ”
                 .filter(s->s.length()>2)
                 .limit(100)
                 .collect(Collectors.toCollection(TreeSet::new));

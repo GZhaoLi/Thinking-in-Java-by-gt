@@ -19,7 +19,10 @@ public class RandomGenerators {
 
     public static void main(String[] args) {
         Random rd = new Random(47);
-        //不控制上下限
+        /*
+        不控制上下限，如果没有show方法中的limit，将会无限产生IntStream中的值。
+        此处boxed方法之前已经生成了流，只是是基本数据类型的（如IntStream），而boxed 可以将基本数据类型进行包装（Stream<Integer>）
+         */
         show(rd.ints().boxed());
         show(rd.longs().boxed());
         show(rd.doubles().boxed());

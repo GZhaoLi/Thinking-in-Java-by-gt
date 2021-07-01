@@ -1,13 +1,11 @@
 package com.gui.demo.thingInJava.streamsProgram;
 
-import com.sun.el.stream.Stream;
-
 import java.util.Random;
 
 import static java.util.stream.IntStream.*;
 /**
  * @Classname Ranges
- * @Description TODO
+ * @Description range的使用
  * @Date 2021/6/10 16:25
  * @Created by gt136
  */

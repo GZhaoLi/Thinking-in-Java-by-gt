@@ -26,6 +26,7 @@ public class FileToWordsBuilder {
     }
     public Stream<String> stream() {
         System.out.println("build 方法被调用了！");
+        //返回一个创建好的流
         return builder.build();
     }
 

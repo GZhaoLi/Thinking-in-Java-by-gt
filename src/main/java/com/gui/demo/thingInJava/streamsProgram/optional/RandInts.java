@@ -19,4 +19,8 @@ public class RandInts {
     public static IntStream rands() {
         return Arrays.stream(rints);//将数组转化为流
     }
+
+    public static void main(String[] args) {
+        rands().forEach(System.out::println);
+    }
 }
