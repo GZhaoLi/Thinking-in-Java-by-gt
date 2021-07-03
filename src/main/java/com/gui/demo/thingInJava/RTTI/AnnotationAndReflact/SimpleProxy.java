@@ -53,7 +53,7 @@ public class SimpleProxy {
     }
 }
 /*
-输出：
+输出：插入了代理的原因是为了我们可以执行额外的操作
 doSomeThing.
 somethingElse bonobo
 simpleProxyDemo doSomething
