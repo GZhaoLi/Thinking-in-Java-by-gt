@@ -1,6 +1,7 @@
 package com.gui.demo.thingInJava.streamsProgram.optional;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * @Classname CreatingOptionals

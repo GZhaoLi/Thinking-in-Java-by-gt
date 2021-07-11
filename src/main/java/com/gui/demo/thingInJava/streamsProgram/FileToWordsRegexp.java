@@ -1,6 +1,7 @@
 package com.gui.demo.thingInJava.streamsProgram;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -30,17 +31,18 @@ public class FileToWordsRegexp {
     }
 
     public static void main(String[] args) throws IOException {
-//        Properties p = new Properties();
-//        try {
-//            p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("identity.properties"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        String wordTxt = p.getProperty("wordTxt").trim();
+
+        Properties p = new Properties();
+        try {
+            p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("identity.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String wordTxt = p.getProperty("wordTxt").trim();
 
 
-        FileToWordsRegexp fw = new FileToWordsRegexp("C:\\Users\\gt136\\Downloads\\Documents\\cheese.txt");
-//        FileToWordsRegexp fw = new FileToWordsRegexp(wordTxt);
+//        FileToWordsRegexp fw = new FileToWordsRegexp("C:\\Users\\gt136\\Downloads\\Documents\\cheese.txt");
+        FileToWordsRegexp fw = new FileToWordsRegexp(wordTxt);
         fw.stream()
                 .limit(7)
                 .map(m -> m + " ")

@@ -34,7 +34,7 @@ class Animal {
 
     @Override
     public int hashCode() {
-        return Objects.hash( name, size);
+        return Objects.hash(name, size);
 //        return Objects.hash(id, name, size);
     }
 
@@ -55,12 +55,30 @@ class Pig extends Animal {
         super(name, size);
     }
 }
+class Dog2 extends Animal{
+    Dog2(String name, Size size) {
+        super(name, size);
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Dog2 && super.equals(o);
+    }
+}
+class Pig2 extends Animal {
+    Pig2(String name, Size size) {
+        super(name, size);
+    }
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Pig2 && super.equals(o);
+    }
+}
 public class SubtypeEquality {
     public static void main(String[] args) {
         Set<Animal> pets = new HashSet<>();
-        pets.add(new Dog("Ralph", Size.MEDIUM));
-        pets.add(new Pig("Ralph", Size.MEDIUM));
+        pets.add(new Dog2("Ralph", Size.MEDIUM));
+        pets.add(new Pig2("Ralph", Size.MEDIUM));
         pets.forEach(System.out::println);
     }
 }
