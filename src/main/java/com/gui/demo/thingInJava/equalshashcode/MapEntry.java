@@ -45,6 +45,7 @@ public class MapEntry<K,V> implements Map.Entry<K,V>{
 
     @Override
     public int hashCode() {
+//        System.out.println(Objects.hash(key,value));
         return Objects.hash(key, value);
     }
 
