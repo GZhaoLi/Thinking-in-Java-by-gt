@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 /**
  * @Classname CachedThreadPool
  * @Description 线程池：CachedThreadPool将为每个任务创建一个线程
- *               注意：ExecutorService 对象是使用静态的 Executors 方法创建的：它继承了Executor类，但它是个接口。
+ *               注意：ExecutorService（它继承了Executor类，但它是个接口。） 对象是使用Executors的静态方法创建的：
  *               这个方法返回新创建的线程池
  *               return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
  *                                       60L, TimeUnit.SECONDS,
@@ -24,3 +24,39 @@ public class CachedThreadPool {
         es.shutdown();
     }
 }
+/*
+output:
+----
+----
+----
+#0(9),
+#0(8),
+#0(7),
+#0(6),
+#0(5),
+#0(4),
+#1(9),
+#2(9),
+#0(3),
+#0(2),
+#2(8),
+#0(1),
+#0(LiftOff!),
+#1(8),
+#2(7),
+#1(7),
+#2(6),
+#2(5),
+#1(6),
+#2(4),
+#1(5),
+#2(3),
+#1(4),
+#2(2),
+#1(3),
+#2(1),
+#1(2),
+#2(LiftOff!),
+#1(1),
+#1(LiftOff!),
+ */
