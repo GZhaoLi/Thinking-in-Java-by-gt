@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
+ * @author gt136
  * @Classname EventChecker
  * @Description 消费者模式
  * @Date 2021/7/22 15:46
