@@ -15,6 +15,12 @@ import java.util.stream.IntStream;
 public class SingleThreadExecutor {
     public static void main(String[] args) {
         ExecutorService exec = Executors.newSingleThreadExecutor();
+        /**
+         * range() 产生从第一个元素到最后一个元素之间的元素，但不包含最后一个元素
+         * rangeClosed() 会产生第一个元素到最后一个元素的元素，包括最后一个元素
+         * exec.shutdown() 执行后，线程就不再接受新的任务了，而在执行任务的线程会将任务执行完后尽快推出
+         */
+
         IntStream.range(0, 10)
                 .mapToObj(NapTask::new)
                 .forEach(exec::execute);

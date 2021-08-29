@@ -15,6 +15,7 @@ public class Futures {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService exec = Executors.newSingleThreadExecutor();
         Future<Integer> f = exec.submit(new CountingTask(99));
+        //f.get() 会在上述任务执行完后并返回后执行
         System.out.println(f.get());
         exec.shutdown();
     }

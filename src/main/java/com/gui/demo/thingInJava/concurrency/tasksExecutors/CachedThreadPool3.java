@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
 public class CachedThreadPool3 {
     public static Integer extractResult(Future<Integer> future) {
         try {
-            //返回计算的结果
+            //返回计算的结果:会在所有任务执行完成后执行，用来检测可能发生的异常
             return future.get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
@@ -30,7 +30,9 @@ public class CachedThreadPool3 {
                 IntStream.range(0, 10)
                         .mapToObj(CountingTask::new)
                         .collect(Collectors.toList());
+        //一次性调用所有任务
         List<Future<Integer>> futures = exec.invokeAll(tasks);
+        //reduce 时合并方法：用于产生从第一个元素开始的
         Integer sum = futures.stream()
                 .map(CachedThreadPool3::extractResult)
                 .reduce(0, Integer::sum);
