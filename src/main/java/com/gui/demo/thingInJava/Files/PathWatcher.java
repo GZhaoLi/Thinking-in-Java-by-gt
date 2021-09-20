@@ -19,11 +19,11 @@ public class PathWatcher {
     static void delTxtFiles() {
         try {
             Files.walk(path)
-                    .filter(f->f.toString().endsWith(".txt"))//筛选出以.txt结尾的文件
+                    .filter(f->f.toString().endsWith(".txt"))//筛选出以 .txt 结尾的文件
                     .forEach(f->{
                         try {
                             System.out.println("deleting " + f);
-                            Files.delete(f);//删除掉整个文件夹
+                            Files.delete(f);//删除文件
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -45,7 +45,7 @@ public class PathWatcher {
             WatchService watcher = FileSystems.getDefault().newWatchService();
             //将监听器注册到 Path 路径上；第二个参数是指监听什么事件，这里指删除事件
             path.register(watcher, ENTRY_DELETE);
-            //
+            //多线程执行删除特定文件
             Executors.newSingleThreadScheduledExecutor()
                     .schedule(PathWatcher::delTxtFiles,250, TimeUnit.MILLISECONDS);
             //检索并删除下一个监视键，如果尚不存在则等待。

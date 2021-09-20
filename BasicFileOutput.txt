@@ -1,0 +1,30 @@
+package com.gui.demo.thingInJava.Files.appendixIO;
+
+import java.io.*;
+
+/**
+ * @Classname BasicFileOutput
+ * @Description TODO
+ * @Date 2021/9/10 17:25
+ * @Created by gt136
+ */
+public class BasicFileOutput {
+    static String file = "BasicFileOutput.txt";
+
+    public static void main(String[] args) {
+        try (BufferedReader in = new BufferedReader(
+                new StringReader(
+                        BufferedInputFile.read("src\\main\\java\\com\\gui\\demo\\thingInJava\\Files\\appendixIO\\BasicFileOutput.java")
+                ));
+             //PrintWriter 提供了格式化功能，它创建的数据文件可作为普通文本来读取
+             PrintWriter out = new PrintWriter(
+                     new BufferedWriter(new FileWriter(file))
+             )) {
+            in.lines().forEach(out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //显示存储的文件
+        System.out.println(BufferedInputFile.read(file));
+    }
+}

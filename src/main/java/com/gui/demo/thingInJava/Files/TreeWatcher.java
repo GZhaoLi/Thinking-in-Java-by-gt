@@ -17,8 +17,10 @@ public class TreeWatcher {
         try {
             WatchService watcher = FileSystems.getDefault().newWatchService();
             dir.register(watcher, ENTRY_DELETE);
+            //开启单线程池来运行多个并发线程
             Executors.newSingleThreadExecutor().submit(() -> {
                 try {
+                    //检索并删除下一个监视键，如果尚不存在则等待。
                     WatchKey key = watcher.take();
                     for (WatchEvent evt : key.pollEvents()) {
                         System.out.println("evt.context(): " + evt.context() +
@@ -27,7 +29,6 @@ public class TreeWatcher {
                         System.exit(0);
                     }
                 } catch (InterruptedException e) {
-                    return;
                 }
             });
         } catch (IOException e) {
