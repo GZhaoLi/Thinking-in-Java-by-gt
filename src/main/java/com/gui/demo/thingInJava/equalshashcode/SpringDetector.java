@@ -25,11 +25,10 @@ public class SpringDetector {
                                 try {
                                     return ghog.newInstance(i);
                                 } catch (Exception e) {
-                                    e.printStackTrace();
                                     throw new RuntimeException(e);
                                 }
                             })
-                            .collect(Collectors.toMap(Function.identity(), gh -> new Prediction()));
+                            .collect(Collectors.toMap(Function.identity(), gh -> new Prediction()));//toMap的两个参数都是根据传入的gh来运算的，两个参数用的是一样的值
             map.forEach((k, v) -> System.out.println(k + ": " + v));
 
             Groundhog gh = ghog.newInstance(3);

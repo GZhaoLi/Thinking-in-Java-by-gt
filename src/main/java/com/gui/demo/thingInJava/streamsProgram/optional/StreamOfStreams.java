@@ -6,8 +6,9 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * @Classname StreamOfStreams
- * @Description 流中流
+ * 流中流 其中的 map 方法 ：public final <R> Stream<R> map(Function<? super P_OUT, ? extends R> mapper) {}
+ *      这个map中的参数是个 Function：也就是说会调用其中的apply方法，这个是自己实现的；而 Function 中的参数，第一个是指我们输入流的类型，
+ *      就是说如果你这个流的类型时 Integer 型，那这个就是 Integer 型；第二个参数是指你返回的新的流的类型，这个也可以自己定义。
  * @Date 2021/6/17 16:41
  * @Created by gt136
  */

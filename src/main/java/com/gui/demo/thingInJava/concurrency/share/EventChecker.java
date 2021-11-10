@@ -48,8 +48,8 @@ public class EventChecker implements Runnable{
 
 
         List<CompletableFuture<Void>> futures = IntStream.range(0,count)//产生数字序列流
-                .mapToObj(i->new EventChecker(gp,i))//产生新的线程,但是gp是同一个对象
-                .map(CompletableFuture::runAsync)//runAsync产生CompletableFuture，异步
+                .mapToObj(i->new EventChecker(gp,i))//产生多个EventChecker实例,但是gp是同一个对象
+                .map(CompletableFuture::runAsync)//runAsync产生CompletableFuture，异步线程启动
                 .collect(Collectors.toList());
         futures.forEach(CompletableFuture::join);
     }

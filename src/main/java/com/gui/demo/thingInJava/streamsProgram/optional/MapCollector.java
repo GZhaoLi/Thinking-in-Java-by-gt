@@ -3,6 +3,7 @@ package com.gui.demo.thingInJava.streamsProgram.optional;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.util.function.IntFunction;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,7 +42,7 @@ class Pair{
 
 class RandomPair{
     Random rand = new Random(47);
-    //随机大写字母的无限迭代器
+    //随机大写字母的无限迭代器,调用iterator方法就会返回这个流元素的迭代器；在这里也就是这些大写子母的流的迭代器
     Iterator<Character> captures = rand.ints(65, 91)
             .mapToObj(i -> (char) i)//
             .iterator();
@@ -49,7 +50,10 @@ class RandomPair{
     public Stream<Pair> stream() {
         return rand.ints(100, 1000)
                 .distinct()
+                //因为上面是随机产生了int型的流并去重，所以，对应的mapToObject的内部参数为IntFunction<Object>()，
+                // 它的默认方法是public Object apply(int value) {return null;};在这里我们将Object改为我们需要的Pair类型
                 .mapToObj(i -> new Pair(captures.next(), i));
+
     }
 }
 public class MapCollector {

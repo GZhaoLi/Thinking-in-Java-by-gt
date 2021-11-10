@@ -1,7 +1,6 @@
 package com.gui.demo.controller;
 
 import com.gui.demo.service.NbaPlayerService;
-import com.gui.demo.service.impl.NbaPlayerServiceImpl;
 import com.gui.demo.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

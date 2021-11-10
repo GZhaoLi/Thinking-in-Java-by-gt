@@ -1,5 +1,6 @@
 package com.gui.demo.thingInJava.streamsProgram.optional;
 
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -23,6 +24,7 @@ public class OptionalsFromEmptyStreams {
                 .reduce((s1, s2) -> s1 + s2));
         System.out.println(IntStream.empty()
                 .average());
+        Stream.of("1","2").reduce((n1,n2)->n2).ifPresent(System.out::println);
     }
 }
 /*

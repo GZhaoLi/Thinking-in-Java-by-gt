@@ -18,7 +18,7 @@ public class CachedThreadPool {
     public static void main(String[] args) {
         ExecutorService es = Executors.newCachedThreadPool();
         for (int i = 0; i < 3; i++) {
-            //第一步先在主线程循环中完成了
+            //第一步先在主线程循环中完成了,在执行这三个语句的时候是主线程执行的，但是，execute会产生新的线程去执行不同的逻辑
             es.execute(new LiftOff());
         }
         es.shutdown();

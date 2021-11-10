@@ -2,6 +2,7 @@ package com.gui.demo.thingInJava.concurrency;
 
 import java.util.ArrayList;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Classname CallableDemo
@@ -10,14 +11,17 @@ import java.util.concurrent.*;
  * @Created by gt136
  */
 class TaskWithResult implements Callable<String> {
-    private int id;
+    private final int id;
+    private AtomicInteger i = new AtomicInteger(0);
 
     public TaskWithResult(int id) {
+        System.out.println("---");
         this.id = id;
     }
 
     @Override
     public String call() throws Exception {
+        System.out.println(i.incrementAndGet());
         return "Result of TaskWithResult: " + id;
     }
 }
@@ -26,17 +30,15 @@ public class CallableDemo {
         ExecutorService threadPool = Executors.newCachedThreadPool();
         ArrayList<Future<String>> futures = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
+            //主线程还是会一次性执行完所有的入口语句。
             futures.add(threadPool.submit(new TaskWithResult(i)));
         }
-        for (Future<String> fs :
-                futures) {
+        for (Future<String> fs : futures) {
             try {
                 System.out.println(fs.get());
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }finally {
+            } finally {
                 threadPool.shutdown();
             }
         }

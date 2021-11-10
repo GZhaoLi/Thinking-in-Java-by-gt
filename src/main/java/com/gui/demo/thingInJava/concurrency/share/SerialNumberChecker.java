@@ -12,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
  * @Created by gt136
  */
 public class SerialNumberChecker implements Runnable {
-    private CircularSet serials = new CircularSet(1000);
-    private SerialNumbers producer;
+    private final CircularSet serials = new CircularSet(1000);
+    private final SerialNumbers producer;
 
     public SerialNumberChecker(SerialNumbers producer) {
         this.producer = producer;

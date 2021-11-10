@@ -11,7 +11,7 @@ import java.io.InputStream;
  */
 public class ClassLoaderTest {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        ClassLoader myloader = new ClassLoader() {
+        ClassLoader myLoader = new ClassLoader() {
             @Override
             public Class<?> loadClass(String name) throws ClassNotFoundException {
                 try {
@@ -28,9 +28,12 @@ public class ClassLoaderTest {
                 }
             }
         };
-        Object obj = myloader.loadClass("com.gui.demo.jvm.classload.ClassLoaderTest")
-                .newInstance();
+        System.out.println(myLoader.getParent());
+        Object obj = myLoader.loadClass("com.gui.demo.jvm.classload.ClassLoaderTest").newInstance();
         System.out.println(obj.getClass());
+        System.out.println(obj.hashCode());
+        System.out.println(myLoader.getParent());
+        System.out.println(ClassLoaderTest.class.hashCode());
         System.out.println(obj instanceof com.gui.demo.jvm.classload.ClassLoaderTest);
     }
 }

@@ -11,14 +11,14 @@ import java.util.stream.Stream;
  * @Created by gt136
  */
 public class CircularSet {
-    private int[] array;
-    private int size;
+    private final int[] array;
+    private final int size;
     private int index = 0;
 
     public CircularSet(int size) {
         this.size = size;
         array = new int[size];
-        //初始化不产生值
+        //初始化不产生值，给每个元素赋初值-1
         Arrays.fill(array, -1);
     }
 
