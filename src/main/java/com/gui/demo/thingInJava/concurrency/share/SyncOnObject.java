@@ -2,7 +2,6 @@ package com.gui.demo.thingInJava.concurrency.share;
 
 import com.gui.demo.thingInJava.concurrency.Nap;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
