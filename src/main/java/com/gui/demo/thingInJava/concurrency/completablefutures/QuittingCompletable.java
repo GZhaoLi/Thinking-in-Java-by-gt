@@ -22,7 +22,7 @@ public class QuittingCompletable {
                 .collect(Collectors.toList());
         List<CompletableFuture<Void>> cfutures =
                 tasks.stream()
-                        .map(CompletableFuture::runAsync)
+                        .map(CompletableFuture::runAsync)//
                         .collect(Collectors.toList());
         new Nap(1);
         tasks.forEach(QuittableTask::quit);

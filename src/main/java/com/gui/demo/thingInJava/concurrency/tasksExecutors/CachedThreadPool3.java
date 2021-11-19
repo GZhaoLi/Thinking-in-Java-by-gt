@@ -9,8 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * @Classname CachedThreadPool3
- * @Description TODO
+ * 使用future一次性运行多个互不关联的任务以及reduce的使用
  * @Date 2021/8/18 16:27
  * @Created by gt136
  */
@@ -32,10 +31,10 @@ public class CachedThreadPool3 {
                         .collect(Collectors.toList());
         //一次性调用所有任务
         List<Future<Integer>> futures = exec.invokeAll(tasks);
-        //reduce 时合并方法：用于产生从第一个元素开始的
+        //reduce 合并方法：使用提供的标识值和关联累加函数对该流的元素执行归约，并返回归约后的值
         Integer sum = futures.stream()
                 .map(CachedThreadPool3::extractResult)
-                .reduce(0, Integer::sum);
+                .reduce(0, Integer::sum);//返回对每个参数运算后的结果
         System.out.println("sum = " + sum);
         exec.shutdown();
     }

@@ -3,8 +3,7 @@ package com.gui.demo.thingInJava.concurrency.tasksExecutors;
 import java.util.stream.IntStream;
 
 /**
- * @Classname CountingStream
- * @Description TODO
+ * 同时运行多个互不干扰的任务
  * @Date 2021/8/18 17:14
  * @Created by gt136
  */

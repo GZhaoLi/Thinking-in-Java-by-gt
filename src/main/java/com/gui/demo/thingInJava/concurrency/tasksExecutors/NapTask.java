@@ -3,8 +3,7 @@ package com.gui.demo.thingInJava.concurrency.tasksExecutors;
 import com.gui.demo.thingInJava.concurrency.Nap;
 
 /**
- * @Classname NapTask
- * @Description TODO
+ * 实现了线程的类
  * @Date 2021/8/18 14:25
  * @Created by gt136
  */
