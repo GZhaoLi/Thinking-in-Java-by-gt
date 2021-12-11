@@ -5,8 +5,7 @@ import com.gui.demo.thingInJava.concurrency.Nap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @Classname QuittableTask
- * @Description TODO
+ * 一个无返回值的任务
  * @Date 2021/8/19 11:15
  * @Created by gt136
  */

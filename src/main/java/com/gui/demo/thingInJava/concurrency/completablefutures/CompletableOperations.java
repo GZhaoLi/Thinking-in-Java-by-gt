@@ -2,7 +2,8 @@ package com.gui.demo.thingInJava.concurrency.completablefutures;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.gui.demo.thingInJava.concurrency.completablefutures.CompletableUtilities.*;
+import static com.gui.demo.thingInJava.concurrency.completablefutures.CompletableUtilities.showr;
+import static com.gui.demo.thingInJava.concurrency.completablefutures.CompletableUtilities.voidr;
 
 /**
  * @Classname CompletableOperations
@@ -20,7 +21,7 @@ public class CompletableOperations {
     public static void main(String[] args) {
         //测试showr() 可以使用
         showr(cfi(1));
-        //调用runAsync，由于 Runnable 不产生返回值，因此使用了返回 CompletableFuture <Void> 的voidr() 方法。这里推荐使用方法引用
+        //调用runAsync，由于 Runnable 不产生返回值，因此使用了返回 CompletableFuture <Void> 的voidr() 方法。这里推荐使用方法引用（因为是静态方法）
         voidr(cfi(2).runAsync(()-> System.out.println("runAsync")));
         //runAsync和thenRunAsync功能似乎相同。
         voidr(cfi(3).thenRunAsync(()-> System.out.println("thenRunAsync")));
@@ -31,15 +32,16 @@ public class CompletableOperations {
         showr(CompletableFuture.supplyAsync(() -> 99));
 
         //与thenRunAsync不同，`cfi(4)`，`cfi(5)`和`cfi(6)`中的“then”方法的参数是未包装的 Integer。
-        //thenAcceptAsync 接受一个 Consumer，因此不会产生结果
-        voidr(cfi(4).thenAcceptAsync(i -> System.out.println("thenAcceptAsync" + i)));
-        //thenApplyAsync 接收一个Function，并产生一个结果（该结果的类型可以不同于其输入类型）
+        //thenAcceptAsync 接受一个 Consumer，因此不会产生结果，返回一个 CompletionStage
+        voidr(cfi(4).thenAcceptAsync(i -> System.out.println("thenAcceptAsync " + i)));
+        //thenApplyAsync 接收一个Function，并产生一个CompletionStage（该结果的类型可以不同于其输入类型）
         showr(cfi(5).thenApplyAsync(i -> i + 42));
         //thenComposeAsync 与 thenApplyAsync 非常相似，唯一区别在于其 Function 必须产生已经包装在 Completable 中的结果。
         showr(cfi(6).thenComposeAsync(i -> cfi(i + 99)));
 
         //
         CompletableFuture<Integer> c = cfi(7);
+        //重置值
         c.obtrudeValue(111);
         showr(c);
         //从CompletionStage 生成一个 CompletableFuture

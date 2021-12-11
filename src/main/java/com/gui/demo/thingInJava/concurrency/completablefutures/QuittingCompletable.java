@@ -22,7 +22,11 @@ public class QuittingCompletable {
                 .collect(Collectors.toList());
         List<CompletableFuture<Void>> cfutures =
                 tasks.stream()
-                        .map(CompletableFuture::runAsync)//
+                        /*
+                         * completableFuture和ExecutorService实现多线程的区别在于前者可以更好的适应流式编程,而
+                         * runAsync可以实现异步执行这些任务，也就是一个CompletableFuture对应一个任务。
+                         */
+                        .map(CompletableFuture::runAsync)//，
                         .collect(Collectors.toList());
         new Nap(1);
         tasks.forEach(QuittableTask::quit);

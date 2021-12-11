@@ -1,0 +1,37 @@
+package com.gui.demo.thingInJava.nio;
+
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
+/**
+ * @Classname ChannelCopy
+ * @Description TODO
+ * @Date 2021/12/9 14:14
+ * @Created by gt136
+ */
+public class ChannelCopy {
+    private static final int BSIZE = 1024;
+
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            System.out.println("arguments: source-file destfile");
+            System.exit(1);
+        }
+
+        try (FileChannel in = new FileInputStream(args[0]).getChannel();
+            FileChannel out = new FileOutputStream(args[1]).getChannel()
+        ) {
+            ByteBuffer buffer = ByteBuffer.allocate(BSIZE);
+            while (in.read(buffer) != -1) {
+                //准备写入
+                buffer.flip();
+                out.write(buffer);
+                //准备读取
+                buffer.clear();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

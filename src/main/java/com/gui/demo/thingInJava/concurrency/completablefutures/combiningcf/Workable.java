@@ -5,8 +5,7 @@ import com.gui.demo.thingInJava.concurrency.Nap;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @Classname Workable
- * @Description TODO
+ * workable可行的任务
  * @Date 2021/8/26 14:56
  * @Created by gt136
  */
@@ -25,6 +24,7 @@ public class Workable {
     }
 
     public static Workable work(Workable tt) {
+        //睡眠传入的参数的时间
         new Nap(tt.duration);
         tt.id = tt.id + "W";
         System.out.println(tt);
@@ -32,6 +32,7 @@ public class Workable {
     }
 
     public static CompletableFuture<Workable> make(String id, double duration) {
+        //和上例一样不多赘述
         return CompletableFuture.completedFuture(new Workable(id, duration))
                 .thenApplyAsync(Workable::work);
     }

@@ -22,6 +22,7 @@ public class StickHolder {
     }
     public void pickUp() {
         try {
+            //出队
             holders.take();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -29,6 +30,7 @@ public class StickHolder {
     }
     public void putDown() {
         try {
+            //入队
             holders.put(stick);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

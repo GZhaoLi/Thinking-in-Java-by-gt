@@ -13,8 +13,9 @@ public class DualCompletableOperations {
     static CompletableFuture<Workable> cfA, cfB;
 
     static void init() {
+        //初始化这里分为两步，第一步先创建了CompletableFuture 在执行后续的work方法
         cfA = Workable.make("A", 0.15);
-        cfB = Workable.make("B", 0.10);//总是赢
+        cfB = Workable.make("B", 0.10);//总是赢，因为它睡得时间少
     }
     static void join() {
         cfA.join();

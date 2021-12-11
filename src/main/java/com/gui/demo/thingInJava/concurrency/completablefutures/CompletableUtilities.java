@@ -13,6 +13,7 @@ public class CompletableUtilities {
     //获取和显示存储在cf中 的值
     public static void showr(CompletableFuture<?> cf) {
         try {
+            //等待返回结果
             System.out.println(cf.get());
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
@@ -22,6 +23,7 @@ public class CompletableUtilities {
     //对于没有值的cf操作
     public static void voidr(CompletableFuture<Void> cf) {
         try {
+            //
             cf.get();//返回void
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();

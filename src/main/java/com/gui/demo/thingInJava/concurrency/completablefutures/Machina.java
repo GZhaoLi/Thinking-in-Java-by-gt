@@ -4,8 +4,7 @@ import com.gui.demo.thingInJava.concurrency.Nap;
 
 /**
  * @author gt136
- * @Classname Machina
- * @Description TODO
+ * 一个对象，但是没有实现Runnable或者Callable
  * @Date 2021/8/20 16:18
  * @Created by gt136
  */

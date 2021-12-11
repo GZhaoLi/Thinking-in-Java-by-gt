@@ -3,8 +3,7 @@ package com.gui.demo.thingInJava.concurrency.completablefutures;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @Classname CompletableApply
- * @Description thenApply
+ * thenApply的使用
  * @Date 2021/8/23 11:19
  * @Created by gt136
  */
