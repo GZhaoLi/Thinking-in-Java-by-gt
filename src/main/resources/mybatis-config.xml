@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true" /> <!-- 全局性地开启或关闭所有映射配置文件中已配置的任何缓存 -->
+        <setting name="lazyLoadingEnabled" value="true" /> <!-- 延迟加载的全局开关。特定关联关系中可通过设置 fetchType 来覆盖该项的开关状态 -->
+        <setting name="multipleResultSetsEnabled" value="true"/><!-- 是否允许单个语句返回多结果集（需要数据库驱动支持） -->
+        <setting name="useColumnLabel" value="true"/><!-- 使用列标签代替列名 -->
+        <setting name="useGeneratedKeys" value="false"/><!-- 允许 JDBC 支持自动生成主键，需要数据库驱动支持 -->
+        <setting name="autoMappingBehavior" value="PARTIAL"/><!-- 指定 Mybatis 应如何自动映射 列 到字段或属性 -->
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/><!-- ... -->
+        <setting name="defaultExecutorType" value="SIMPLE"/><!-- 配置默认的执行器 -->
+        <setting name="defaultStatementTimeout" value="25"/><!-- 设置超时时间 -->
+        <setting name="defaultFetchSize" value="100"/><!-- 为驱动的结果集获取数量（fetchSize）设置一个建议值 -->
+        <setting name="safeRowBoundsEnabled" value="false"/><!-- 是否允许在嵌套语句中使用分页，允许设置为 false -->
+        <setting name="mapUnderscoreToCamelCase" value="false"/><!-- 是否开启驼峰命名自动映射，即从 A_COLUMN 到 Java 属性名 aColumn -->
+        <setting name="localCacheScope" value="SESSION"/><!--  -->
+        <setting name="jdbcTypeForNull" value="OTHER"/><!-- 当没有为参数指定特定的 JDBC 类型时对应的默认 JDBC 类型 -->
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/><!-- 指定对象的那些方法触发一次延迟加载 -->
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="com.gui.demo.domain.NbaPlayer" alias="NbaPlayer" />
+    </typeAliases>
+
+</configuration>
+
+

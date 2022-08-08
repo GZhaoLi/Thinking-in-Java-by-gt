@@ -13,7 +13,7 @@ public class NbaPlayerServiceImpl implements NbaPlayerService {
     private NbaPlayerMapper nbaPlayerMapper;
 
     public List<NbaPlayer> ListNbaPlayer() {
-        return nbaPlayerMapper.ListNbaMapper();
+        return nbaPlayerMapper.listNbaMapper();
     }
 
 }
