@@ -21,7 +21,8 @@ public class ChannelCopy {
         try (FileChannel in = new FileInputStream(args[0]).getChannel();
             FileChannel out = new FileOutputStream(args[1]).getChannel()
         ) {
-            ByteBuffer buffer = ByteBuffer.allocate(BSIZE);//分配好存储
+            //分配好存储
+            ByteBuffer buffer = ByteBuffer.allocate(BSIZE);
             //read() 将数据每次放入缓冲区中
             while (in.read(buffer) != -1) {
                 //准备写入,每次都要准备好

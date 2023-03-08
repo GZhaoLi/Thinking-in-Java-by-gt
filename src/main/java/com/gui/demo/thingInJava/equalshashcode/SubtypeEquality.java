@@ -10,7 +10,17 @@ import java.util.Set;
  * @Date 2021/7/1 23:09
  * @Created by gt136
  */
-enum Size{ SMALL,MEDIUM,LARGE }
+enum Size {
+    /**
+     *
+     */
+    SMALL, MEDIUM, LARGE;
+
+    Size curgentToDouble() {
+        return values()[ordinal()];
+    }
+}
+
 
 class Animal {
     private static int counter = 0;
@@ -74,6 +84,9 @@ class Pig2 extends Animal {
         return o instanceof Pig2 && super.equals(o);
     }
 }
+/**
+ * @author chappyzhao
+ */
 public class SubtypeEquality {
     public static void main(String[] args) {
         Set<Animal> pets = new HashSet<>();

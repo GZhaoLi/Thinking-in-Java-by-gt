@@ -6,11 +6,12 @@ import java.nio.channels.FileChannel;
 
 /**
    FileChannel 和 ByteBuffer 的使用
+ * @author chappyzhao
  * @Date 2021/12/4 23:01
  * @Created by gt136
  */
 public class GetChannel {
-    private static String name = "data.txt";
+    private static final String name = "data.txt";
     private static final int BSIZE = 1024;
 
     public static void main(String[] args) {
@@ -53,8 +54,13 @@ public class GetChannel {
             点粗糙，实际上已经是为了达到最高速度而进行的非常底层的操作
             如果要进一步调用 read() 来使用 ByteBuffer，还需要每次 clear() 来准备缓冲区。下个示例演示
              */
+
             fc.read(buff);
             buff.flip();
+            while (buff.hasRemaining()) {
+                System.out.println(buff.get());
+            }
+            fc.read(buff, 512);
             while (buff.hasRemaining()) {
                 System.out.println(buff.get());
             }

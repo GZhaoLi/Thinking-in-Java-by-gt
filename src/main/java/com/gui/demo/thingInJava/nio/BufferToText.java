@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  正确读取和打印数据：text 和 ByteBuffers 互转
@@ -25,6 +26,7 @@ public class BufferToText {
 
         //对于只读访问，必须用静态方法 allocate 分配大小
         ByteBuffer buff = ByteBuffer.allocate(BSIZE);
+        System.out.println(buff.limit());
 
         try (FileChannel fc = new FileInputStream(name).getChannel()) {
             //读取缓存大小的缓存，此外还必须调用 flip 来准备好提取字节，之后还得 clear 缓冲区
@@ -43,7 +45,7 @@ public class BufferToText {
 
         //编码和打印
         try (FileChannel fc = new FileOutputStream(name).getChannel()) {
-            fc.write(ByteBuffer.wrap("Some Text".getBytes("UTF-16BE")));
+            fc.write(ByteBuffer.wrap("Some Text".getBytes(StandardCharsets.UTF_16BE)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

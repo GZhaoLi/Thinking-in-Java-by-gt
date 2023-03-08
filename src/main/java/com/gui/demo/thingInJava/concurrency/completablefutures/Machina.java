@@ -3,10 +3,9 @@ package com.gui.demo.thingInJava.concurrency.completablefutures;
 import com.gui.demo.thingInJava.concurrency.Nap;
 
 /**
- * @author gt136
  * 一个对象，但是没有实现Runnable或者Callable
+ * @author chappyzhao
  * @Date 2021/8/20 16:18
- * @Created by gt136
  */
 public class Machina {
     public enum State{
@@ -18,6 +17,7 @@ public class Machina {
             }
             return values()[ordinal() + 1];
         }
+
     }
 
     private State state = State.STATE;
