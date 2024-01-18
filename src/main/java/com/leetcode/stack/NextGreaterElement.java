@@ -58,7 +58,7 @@ public class NextGreaterElement {
      */
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
-        Deque<Integer> stack = new ArrayDeque<Integer>();
+        Deque<Integer> stack = new ArrayDeque<>();
         for (int i = nums2.length - 1; i >= 0; --i) {
             int num = nums2[i];
             while (!stack.isEmpty() && num >= stack.peek()) {
