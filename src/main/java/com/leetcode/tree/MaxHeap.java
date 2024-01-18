@@ -1,7 +1,5 @@
 package com.leetcode.tree;
 
-import com.leetcode.BuildTree;
-
 /**
  * MaxHeap 大顶堆
  *
