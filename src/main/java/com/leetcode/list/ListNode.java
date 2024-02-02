@@ -6,7 +6,7 @@ public class ListNode {
     int val;
     ListNode next;
 
-    ListNode() {
+    public ListNode() {
     }
 
     ListNode(int val) {
